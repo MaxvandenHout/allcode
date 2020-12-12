@@ -1,0 +1,80 @@
+﻿@model IEnumerable<Managment.Models.Employees>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <ul id="menu">
+        <li>
+            <p>
+                @Html.TextBox("SearchString")
+                <input type="submit" value="Zoek" />
+            </p>
+        </li>
+        <li>
+            <input type="button" title="Create" value="Nieuw" onclick="location.href='@Url.Action("Create", "Employees")'" />
+        </li>
+        <li>
+            <input type="button" title="Jobs" value="Jobs" onclick="location.href='@Url.Action("Index", "jobs")'" />
+        </li>
+
+
+    </ul>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Fname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Lname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Position)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Position)
+            </th>
+
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Fname)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Lname)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Position)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Rights)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Criticism)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Employeeid }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.Employeeid }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Employeeid })
+                </td>
+            </tr>
+        }
+
+    </table>
+    
+</body>
+</html>

@@ -1,0 +1,66 @@
+﻿@model personal.Models.Users
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<head>
+    <style>
+        .form-popup2 {
+            display: none;
+            position: fixed;
+            bottom: 30px;
+            left: 15px;
+            border: 3px solid #f1f1f1;
+            z-index: 9;
+        }
+    </style>
+</head>
+<body>
+    <h2>Login</h2>
+
+
+    @using (Html.BeginForm("Login", "Login", FormMethod.Post))
+    {
+        <fieldset>
+            <legend>Login</legend>
+
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true)
+            @if (@ViewBag.Message != null)
+            {
+                <div style="border: 1px solid red">
+                    @ViewBag.Message
+                </div>
+            }
+            <table>
+                <tr>
+                    <td><h4>Naam</h4></td>
+                    <td>@Html.TextBoxFor(a => a.Username)</td>
+                    <td>@Html.ValidationMessageFor(a => a.Username)</td>
+                </tr>
+                <tr>
+                    <td>
+                        <h4>Wachtwoord</h4>
+                    </td>
+                    <td>
+                        @Html.PasswordFor(a => a.Password)
+                    </td>
+                    <td>
+                        @Html.ValidationMessageFor(a => a.Password)
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <input type="submit" value="Login" />
+                        <input type="button" title="Create" value="Nieuw" onclick="location.href='@Url.Action("Registration1", "Home")'" />
+                    </td>
+                    <td></td>
+                </tr>
+            </table>
+        </fieldset>
+    }
+
+
+    }
+</body>

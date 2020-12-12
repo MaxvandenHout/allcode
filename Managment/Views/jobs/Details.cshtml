@@ -1,0 +1,98 @@
+﻿@model Managment.Models.jobs
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <div>
+        <h4>jobs</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Jobname)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Jobname)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Jobdiscription)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Jobdiscription)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Status)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Status)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Jobtaker)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Jobtaker)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Begintime)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Begintime)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Endtime)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Endtime)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.acceptancetime)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.acceptancetime)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.finishtime)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.finishtime)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.comment)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.comment)
+            </dd>
+    
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.Jobid }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</body>
+</html>

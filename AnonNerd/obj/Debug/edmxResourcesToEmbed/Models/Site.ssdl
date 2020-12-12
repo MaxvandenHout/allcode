@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="anonnerdModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.7" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="comment">
+    <Key>
+      <PropertyRef Name="idcomment" />
+    </Key>
+    <Property Name="idcomment" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="comment" Type="text" Nullable="false" />
+    <Property Name="writer" Type="int" Nullable="false" />
+    <Property Name="datetime" Type="datetime" Precision="0" Nullable="false" />
+    <Property Name="Postid" Type="int" />
+  </EntityType>
+  <EntityType Name="post">
+    <Key>
+      <PropertyRef Name="idPosts" />
+    </Key>
+    <Property Name="idPosts" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Online" Type="varchar" MaxLength="45" Nullable="false" />
+    <Property Name="Date" Type="datetime" Precision="0" Nullable="false" />
+    <Property Name="Title" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Mainpic" Type="text" Nullable="false" />
+    <Property Name="Intro" Type="text" Nullable="false" />
+    <Property Name="Writer" Type="int" Nullable="false" />
+    <Property Name="Views" Type="int" />
+    <Property Name="Tags" Type="text" />
+    <Property Name="Pic1" Type="text" />
+    <Property Name="Vid1" Type="text" />
+    <Property Name="Subtitle" Type="text" />
+    <Property Name="Text2" Type="text" />
+    <Property Name="Pic2" Type="text" />
+    <Property Name="Vid2" Type="text" />
+    <Property Name="Subtitle2" Type="text" />
+    <Property Name="Text3" Type="text" />
+    <Property Name="Pic3" Type="text" />
+    <Property Name="Vid3" Type="text" />
+    <Property Name="Subtitle3" Type="text" />
+    <Property Name="Text4" Type="text" />
+    <Property Name="Pic4" Type="text" />
+    <Property Name="Vid4" Type="text" />
+    <Property Name="Text5" Type="text" />
+    <Property Name="Pic5" Type="text" />
+    <Property Name="Vid5" Type="text" />
+    <Property Name="End" Type="text" />
+    <Property Name="Link1" Type="varchar" MaxLength="300" />
+    <Property Name="Link2" Type="varchar" MaxLength="300" />
+    <Property Name="Link3" Type="varchar" MaxLength="300" />
+    <Property Name="Link4" Type="varchar" MaxLength="300" />
+    <Property Name="Link5" Type="varchar" MaxLength="300" />
+  </EntityType>
+  <EntityType Name="subcomment">
+    <Key>
+      <PropertyRef Name="idsubcomment" />
+    </Key>
+    <Property Name="idsubcomment" Type="int" Nullable="false" />
+    <Property Name="Content" Type="text" Nullable="false" />
+    <Property Name="Date" Type="datetime" Precision="0" Nullable="false" />
+    <Property Name="Writer" Type="int" Nullable="false" />
+    <Property Name="Maincomment" Type="int" />
+  </EntityType>
+  <EntityType Name="writer">
+    <Key>
+      <PropertyRef Name="idWriter" />
+    </Key>
+    <Property Name="idWriter" Type="int" Nullable="false" />
+    <Property Name="Time" Type="int" />
+    <Property Name="Password" Type="varchar" MaxLength="45" />
+  </EntityType>
+  <Association Name="idComment">
+    <End Role="comment" Type="Self.comment" Multiplicity="0..1" />
+    <End Role="subcomment" Type="Self.subcomment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="comment">
+        <PropertyRef Name="idcomment" />
+      </Principal>
+      <Dependent Role="subcomment">
+        <PropertyRef Name="Maincomment" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="idPosts">
+    <End Role="post" Type="Self.post" Multiplicity="0..1" />
+    <End Role="comment" Type="Self.comment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="post">
+        <PropertyRef Name="idPosts" />
+      </Principal>
+      <Dependent Role="comment">
+        <PropertyRef Name="Postid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="idWriter">
+    <End Role="writer" Type="Self.writer" Multiplicity="1" />
+    <End Role="post" Type="Self.post" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="writer">
+        <PropertyRef Name="idWriter" />
+      </Principal>
+      <Dependent Role="post">
+        <PropertyRef Name="Writer" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="anonnerdModelStoreContainer">
+    <EntitySet Name="comment" EntityType="Self.comment" Schema="anonnerd" store:Type="Tables" />
+    <EntitySet Name="post" EntityType="Self.post" Schema="anonnerd" store:Type="Tables" />
+    <EntitySet Name="subcomment" EntityType="Self.subcomment" Schema="anonnerd" store:Type="Tables" />
+    <EntitySet Name="writer" EntityType="Self.writer" Schema="anonnerd" store:Type="Tables" />
+    <AssociationSet Name="idComment" Association="Self.idComment">
+      <End Role="comment" EntitySet="comment" />
+      <End Role="subcomment" EntitySet="subcomment" />
+    </AssociationSet>
+    <AssociationSet Name="idPosts" Association="Self.idPosts">
+      <End Role="post" EntitySet="post" />
+      <End Role="comment" EntitySet="comment" />
+    </AssociationSet>
+    <AssociationSet Name="idWriter" Association="Self.idWriter">
+      <End Role="writer" EntitySet="writer" />
+      <End Role="post" EntitySet="post" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

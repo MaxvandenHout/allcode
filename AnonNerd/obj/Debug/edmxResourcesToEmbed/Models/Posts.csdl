@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="anonnerdModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="comment">
+    <Key>
+      <PropertyRef Name="idcomment" />
+    </Key>
+    <Property Name="idcomment" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="comment1" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="writer" Type="Int32" Nullable="false" />
+    <Property Name="datetime" Type="DateTime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="post">
+    <Key>
+      <PropertyRef Name="idPosts" />
+    </Key>
+    <Property Name="idPosts" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Online" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Date" Type="DateTime" Nullable="false" />
+    <Property Name="Title" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Mainpic" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Intro" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Writer" Type="Int32" Nullable="false" />
+    <Property Name="Views" Type="Int32" />
+    <Property Name="Tags" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="Pic1" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="Vid1" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="Subtitle" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="Text2" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="Pic2" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="Vid2" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="Subtitle2" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="Text3" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="Pic3" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="Vid3" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="Subtitle3" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="Text4" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="Pic4" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="Vid4" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="Text5" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="Pic5" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="Vid5" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="End" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="Link1" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="Link2" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="Link3" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="Link4" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="Link5" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="subcomment">
+    <Key>
+      <PropertyRef Name="idsubcomment" />
+    </Key>
+    <Property Name="idsubcomment" Type="Int32" Nullable="false" />
+    <Property Name="Content" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Date" Type="DateTime" Nullable="false" />
+    <Property Name="Writer" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="writer">
+    <Key>
+      <PropertyRef Name="idWriter" />
+    </Key>
+    <Property Name="idWriter" Type="Int32" Nullable="false" />
+    <Property Name="Time" Type="Int32" />
+    <Property Name="Password" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="comment" EntityType="Self.comment" />
+    <EntitySet Name="post" EntityType="Self.post" />
+    <EntitySet Name="subcomment" EntityType="Self.subcomment" />
+    <EntitySet Name="writer" EntityType="Self.writer" />
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,80 @@
+﻿@model Managment.Models.Employees
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Delete</title>
+</head>
+<body>
+    <h3>Are you sure you want to delete this?</h3>
+    <div>
+        <h4>Employees</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Fname)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Fname)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Lname)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Lname)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Age)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Age)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Position)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Position)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Rights)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Rights)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Criticism)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Criticism)
+            </dd>
+    
+        </dl>
+    
+        @using (Html.BeginForm()) {
+            @Html.AntiForgeryToken()
+    
+            <div class="form-actions no-color">
+                <input type="submit" value="Delete" class="btn btn-default" /> |
+                @Html.ActionLink("Back to List", "Index")
+            </div>
+        }
+    </div>
+</body>
+</html>

@@ -1,0 +1,60 @@
+{
+  "name": "@zip-software/vue-virtual-stream",
+  "version": "1.9.0",
+  "description": "A virtualized list view for chats, comment lists and streams in general.",
+  "main": "dist/vue-virtual-stream.umd.js",
+  "module": "dist/vue-virtual-stream.esm.js",
+  "unpkg": "dist/vue-virtual-stream.min.js",
+  "browser": {
+    "./sfc": "src/components/VirtualStream.vue"
+  },
+  "scripts": {
+    "prepublish": "npm run build",
+    "install-all": "npm install && cd ./src && npm install",
+    "build": "npm run build:umd && npm run build:es && npm run build:unpkg",
+    "build:umd": "rollup --config build/rollup.config.js --format umd --file dist/vue-virtual-stream.umd.js --sourcemapExcludeSources",
+    "build:es": "rollup --config build/rollup.config.js --format es --file dist/vue-virtual-stream.esm.js --sourcemapExcludeSources",
+    "build:unpkg": "rollup --config build/rollup.config.js --format iife --file dist/vue-virtual-stream.min.js --sourcemapExcludeSources",
+    "dev": "rollup --config build/rollup.config.js --format es --file dist/vue-virtual-stream.esm.js -w -m",
+    "push-demo": "gh-pages -d ./demo/dist",
+    "publish-demo": "cd ./demo && npm run build && cd .. && npm run push-demo",
+    "full-publish": "npm run install-all && npm run build && npm run publish-demo",
+    "release": "np --yolo"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ZIP-Software/vue-virtual-stream.git"
+  },
+  "keywords": [
+    "vue",
+    "virtual",
+    "virtualized",
+    "list",
+    "chat",
+    "stream",
+    "comments"
+  ],
+  "author": "Dominik Biedebach, ZIP Software",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ZIP-Software/vue-virtual-stream/issues"
+  },
+  "homepage": "https://github.com/ZIP-Software/vue-virtual-stream#readme",
+  "devDependencies": {
+    "gh-pages": "^2.0.1",
+    "husky": "^1.2.0",
+    "np": "^4.0.2",
+    "rollup": "^0.67.4",
+    "rollup-plugin-buble": "^0.19.6",
+    "rollup-plugin-commonjs": "^9.2.0",
+    "rollup-plugin-node-resolve": "^4.0.0",
+    "rollup-plugin-vue": "^4.3.2",
+    "vue": "^2.5.21",
+    "vue-template-compiler": "^2.5.21"
+  },
+  "dependencies": {
+    "deep-object-diff": "^1.1.0",
+    "lodash": "^4.17.11",
+    "resize-observer-polyfill": "^1.5.1"
+  }
+}

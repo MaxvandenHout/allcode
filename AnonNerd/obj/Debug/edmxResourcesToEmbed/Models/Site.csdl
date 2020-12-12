@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="anonnerdModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="comment">
+    <Key>
+      <PropertyRef Name="idcomment" />
+    </Key>
+    <Property Name="idcomment" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="comment1" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="writer" Type="Int32" Nullable="false" />
+    <Property Name="datetime" Type="DateTime" Nullable="false" />
+    <Property Name="Postid" Type="Int32" />
+    <NavigationProperty Name="subcomment" Relationship="Self.idComment" FromRole="comment" ToRole="subcomment" />
+    <NavigationProperty Name="post" Relationship="Self.idPosts" FromRole="comment" ToRole="post" />
+  </EntityType>
+  <EntityType Name="post">
+    <Key>
+      <PropertyRef Name="idPosts" />
+    </Key>
+    <Property Name="idPosts" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Online" Type="String" MaxLength="45" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Date" Type="DateTime" Nullable="false" />
+    <Property Name="Title" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Mainpic" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Intro" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Writer" Type="Int32" Nullable="false" />
+    <Property Name="Views" Type="Int32" />
+    <Property Name="Tags" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="Pic1" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="Vid1" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="Subtitle" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="Text2" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="Pic2" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="Vid2" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="Subtitle2" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="Text3" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="Pic3" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="Vid3" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="Subtitle3" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="Text4" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="Pic4" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="Vid4" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="Text5" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="Pic5" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="Vid5" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="End" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+    <Property Name="Link1" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="Link2" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="Link3" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="Link4" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="Link5" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="comment" Relationship="Self.idPosts" FromRole="post" ToRole="comment" />
+    <NavigationProperty Name="writer1" Relationship="Self.idWriter" FromRole="post" ToRole="writer" />
+  </EntityType>
+  <EntityType Name="subcomment">
+    <Key>
+      <PropertyRef Name="idsubcomment" />
+    </Key>
+    <Property Name="idsubcomment" Type="Int32" Nullable="false" />
+    <Property Name="Content" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Date" Type="DateTime" Nullable="false" />
+    <Property Name="Writer" Type="Int32" Nullable="false" />
+    <Property Name="Maincomment" Type="Int32" />
+    <NavigationProperty Name="comment" Relationship="Self.idComment" FromRole="subcomment" ToRole="comment" />
+  </EntityType>
+  <EntityType Name="writer">
+    <Key>
+      <PropertyRef Name="idWriter" />
+    </Key>
+    <Property Name="idWriter" Type="Int32" Nullable="false" />
+    <Property Name="Time" Type="Int32" />
+    <Property Name="Password" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="post" Relationship="Self.idWriter" FromRole="writer" ToRole="post" />
+  </EntityType>
+  <Association Name="idComment">
+    <End Role="comment" Type="Self.comment" Multiplicity="0..1" />
+    <End Role="subcomment" Type="Self.subcomment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="comment">
+        <PropertyRef Name="idcomment" />
+      </Principal>
+      <Dependent Role="subcomment">
+        <PropertyRef Name="Maincomment" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="idPosts">
+    <End Role="post" Type="Self.post" Multiplicity="0..1" />
+    <End Role="comment" Type="Self.comment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="post">
+        <PropertyRef Name="idPosts" />
+      </Principal>
+      <Dependent Role="comment">
+        <PropertyRef Name="Postid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="idWriter">
+    <End Role="writer" Type="Self.writer" Multiplicity="1" />
+    <End Role="post" Type="Self.post" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="writer">
+        <PropertyRef Name="idWriter" />
+      </Principal>
+      <Dependent Role="post">
+        <PropertyRef Name="Writer" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="anonnerdEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="comment" EntityType="Self.comment" />
+    <EntitySet Name="post" EntityType="Self.post" />
+    <EntitySet Name="subcomment" EntityType="Self.subcomment" />
+    <EntitySet Name="writer" EntityType="Self.writer" />
+    <AssociationSet Name="idComment" Association="Self.idComment">
+      <End Role="comment" EntitySet="comment" />
+      <End Role="subcomment" EntitySet="subcomment" />
+    </AssociationSet>
+    <AssociationSet Name="idPosts" Association="Self.idPosts">
+      <End Role="post" EntitySet="post" />
+      <End Role="comment" EntitySet="comment" />
+    </AssociationSet>
+    <AssociationSet Name="idWriter" Association="Self.idWriter">
+      <End Role="writer" EntitySet="writer" />
+      <End Role="post" EntitySet="post" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

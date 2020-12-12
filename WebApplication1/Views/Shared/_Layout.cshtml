@@ -1,0 +1,343 @@
+﻿
+
+<!DOCTYPE html>
+
+
+<script>
+    function openForm() {
+        document.getElementById("myForm").style.display = "block";
+    }
+
+    function closeForm() {
+        document.getElementById("myForm").style.display = "none";
+    }
+
+    function openForm2() {
+        document.getElementById("myForm2").style.display = "block";
+    }
+
+    function closeForm2() {
+        document.getElementById("myForm2").style.display = "none";
+    }
+    function openForm3() {
+        document.getElementById("myForm3").style.display = "block";
+    }
+
+    function closeForm3() {
+        document.getElementById("myForm3").style.display = "none";
+    }
+    function w3_open() {
+        document.getElementById("mySidebar").style.display = "block";
+    }
+
+    function w3_close() {
+        document.getElementById("mySidebar").style.display = "none";
+    }
+
+    function openRightMenu() {
+        document.getElementById("rightMenu").style.display = "block";
+    }
+
+    function closeRightMenu() {
+        document.getElementById("rightMenu").style.display = "none";
+    }
+
+</script>
+<head>
+    <title>AnonNerd</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
+    
+    <style>
+
+      
+        /* Button used to open the contact form - fixed at the bottom of the page */
+        .open-button {
+            background-color: #555;
+            color: white;
+            padding: 16px 20px;
+            border: none;
+            cursor: pointer;
+            opacity: 0.8;
+            position: fixed;
+            bottom: 23px;
+            right: 28px;
+            width: 280px;
+        }
+
+        /* The popup form - hidden by default */
+        .form-popup2 {
+            display: none;
+            position: fixed;
+            bottom: 30px;
+            left: 15px;
+            border: 3px solid #f1f1f1;
+            z-index: 9;
+        }
+
+        /* Add styles to the form container */
+        .form-container2 {
+            max-width: 300px;
+            padding: 10px;
+            background-color: white;
+        }
+
+            /* Full-width input fields */
+            .form-container2 input[type=text], .form-container2 input[type=password] {
+                width: 100%;
+                padding: 15px;
+                margin: 5px 0 22px 0;
+                border: none;
+                background: #f1f1f1;
+            }
+
+                /* When the inputs get focus, do something */
+                .form-container2 input[type=text]:focus, .form-container2 input[type=password]:focus {
+                    background-color: #ddd;
+                    outline: none;
+                }
+
+            /* Set a style for the submit/login button */
+            .form-container2 .btn {
+                background-color: #4CAF50;
+                color: white;
+                padding: 16px 20px;
+                border: none;
+                cursor: pointer;
+                width: 100%;
+                margin-bottom: 10px;
+                opacity: 0.8;
+            }
+
+            /* Add a red background color to the cancel button */
+            .form-container2 .cancel {
+                background-color: red;
+            }
+
+            /* Add some hover effects to buttons */
+            .form-container2 .btn:hover, .open-button:hover {
+                opacity: 1;
+            }
+
+        body, h1, h2, h3, h4, h5 {
+            font-family: "Raleway", sans-serif
+        }
+
+        .icon {
+            width: 200px;
+            height: 250px;
+            position: relative;
+            left: 100px;
+            top: 20px;
+        }
+
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        /* Button used to open the chat form - fixed at the bottom of the page */
+        .open-button {
+            background-color: #555;
+            color: white;
+            padding: 16px 20px;
+            border: none;
+            cursor: pointer;
+            opacity: 0.8;
+            position: fixed;
+            bottom: 23px;
+            right: 28px;
+            width: 280px;
+        }
+
+        /* The popup chat - hidden by default */
+        .chat-popup {
+            display: none;
+            position: fixed;
+            bottom: 30px;
+            right: 15px;
+            border: 3px solid #f1f1f1;
+            z-index: 9;
+        }
+        .search {
+            display: none;
+            position: fixed;
+            top: 30px;
+            right: 45px;
+            border: 3px solid #f1f1f1;
+            z-index: 9;
+        }
+
+        .login-popup {
+            display: none;
+            position: fixed;
+            top: 30px;
+            left: 15px;
+            border: 3px solid #f1f1f1;
+            z-index: 9;
+        }
+
+        /* Add styles to the form container */
+        .form-container {
+            max-width: 300px;
+            padding: 10px;
+            background-color: white;
+        }
+
+            /* Full-width textarea */
+            .form-container textarea {
+                width: 100%;
+                padding: 15px;
+                margin: 5px 0 22px 0;
+                border: none;
+                background: #f1f1f1;
+                resize: none;
+                min-height: 200px;
+            }
+
+                /* When the textarea gets focus, do something */
+                .form-container textarea:focus {
+                    background-color: #ddd;
+                    outline: none;
+                }
+
+            /* Set a style for the submit/send button */
+            .form-container .btn {
+                background-color: #4CAF50;
+                color: white;
+                padding: 16px 20px;
+                border: none;
+                cursor: pointer;
+                width: 100%;
+                margin-bottom: 10px;
+                opacity: 0.8;
+            }
+
+            /* Add a red background color to the cancel button */
+            .form-container .cancel {
+                background-color: red;
+            }
+
+            /* Add some hover effects to buttons */
+            .form-container .btn:hover, .open-button:hover {
+                opacity: 1;
+            }
+
+        .content {
+            max-width: 672px;
+        }
+    </style>
+    <link rel="icon" href="~/Media/V.png">
+</head>
+<html>
+
+<body class="w3-light-grey">
+
+
+    <div class="chat-popup" id="myForm">
+        <form action="/action_page.php" class="form-container">
+            <h1>Chat</h1>
+
+            <label for="msg"><b>Message</b></label>
+            <textarea placeholder="Type message.." name="msg" required></textarea>
+
+            <button type="submit" oneclick="Sendmessage()" class="btn">Send</button>
+            <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+        </form>
+    </div>
+
+
+
+    <div class="form-popup2" id="myForm2">
+        <form action="/action_page.php" class="form-container2">
+            <h1>Login</h1>
+
+            <label for="email"><b>Email</b></label>
+            <input type="text" placeholder="Enter Email" name="email" required>
+
+            <label for="psw"><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" name="psw" required>
+
+            <button type="submit" class="btn">Login</button>
+            <button type="submit" class="btn cancel" onclick="closeForm2()">Close</button>
+        </form>
+    </div>
+
+ 
+    <div class="w3-sidebar w3-bar-block w3-border-right" style="display:none" id="mySidebar">
+        <button onclick="w3_close()" class="w3-bar-item w3-large">Close &times;</button>
+        <a href="#" class="w3-bar-item w3-button">Link 1</a>
+        <a href="#" class="w3-bar-item w3-button">Link 2</a>
+        <a href="#" class="w3-bar-item w3-button">Link 3</a>
+    </div>
+
+
+    <div id="myForm3" class="search" style="display:none; right:30px; top:16px;">
+        <span onclick="this.parentElement.style.display='none'"
+              class="w3-button w3-red w3-display-topright">x</span>
+        <div class="search-container">
+            <form action="/action_page.php">
+                <input type="text" placeholder="Search.." name="search">
+                <button type="submit"><i class="fa fa-search"></i></button>
+            </form>
+        </div>
+    </div>
+
+    <div class="w3-bar-block w3-card w3-animate-right" style="display:none;right:50px;width:auto" id="rightMenu">
+
+        <button onclick="closeRightMenu()" class="w3-bar-item w3-button w3-large">Close &times;</button>
+        <input type="text" class="w3-bar-item w3-input" placeholder="Search..">
+        <a href="#" class="w3-bar-item w3-button w3-green">Go</a>
+
+    </div>
+
+    <img class="icon" src="~/Media/V.png" />
+    <!-- w3-content defines a container for fixed size centered content,
+    and is wrapped around the whole page content, except for the footer in this example -->
+    <div class="w3-content" style="max-width:1400px">
+
+        <a class="w3-button w3-xlarge w3-circle w3-red" style="position:fixed;top:16px;right:16px;" width="25" height="25" onclick="openForm3()" secondclick="closeRightMenu()">
+            <i class="fa fa-search"></i>
+        </a>
+        <a class="w3-button w3-xlarge w3-circle w3-black" style="position:fixed;top:16px;left:16px;" width="25" height="25" onclick="w3_open()">
+            <i class="fa fa-bars"></i>
+        </a>
+        <a class="w3-button w3-xlarge w3-circle w3-green" style="position:fixed;bottom:16px;right:16px;" width="25" height="25" onclick="openForm()" secondclick="closeForm()">
+            <i class='far'>&#xf27a;</i>
+        </a>
+        <a class="w3-button w3-xlarge w3-circle w3-blue" style="position:fixed;bottom:16px;left:16px;" width="25" height="25" onclick="openForm2()">
+            <i class='fas'>&#xf304;</i>
+        </a>
+
+        <!-- Grid -->
+        <div class="w3-row">
+
+            <!-- Blog entries -->
+            <div class="content">
+                @RenderBody();
+
+            </div>
+
+            <!-- END GRID -->
+        </div><br>
+
+        <!-- END w3-content -->
+    </div>
+
+    <!-- Footer -->
+    <footer class="w3-container w3-theme-l2 w3-black" style="position:relative">
+
+        <p>Copyright 2016</p>
+    </footer>
+
+</body>
+</html>

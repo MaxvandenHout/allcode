@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="managmentModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Employees">
+    <Key>
+      <PropertyRef Name="Employeeid" />
+    </Key>
+    <Property Name="Employeeid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Fname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Lname" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Age" Type="Int32" />
+    <Property Name="Position" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Rights" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Criticism" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Picture" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <Property Name="Password" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Contract" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Division" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Birthdate" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="Jobtakers" Relationship="Self.FK_Jobtakers_Employees" FromRole="Employees" ToRole="Jobtakers" />
+  </EntityType>
+  <EntityType Name="jobs">
+    <Key>
+      <PropertyRef Name="Jobid" />
+    </Key>
+    <Property Name="Jobid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Jobname" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Jobdiscription" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Jobtaker" Type="Int32" />
+    <Property Name="Begintime" Type="DateTime" Precision="3" />
+    <Property Name="Endtime" Type="DateTime" Precision="3" />
+    <Property Name="acceptancetime" Type="DateTime" Precision="3" />
+    <Property Name="finishtime" Type="DateTime" Precision="3" />
+    <Property Name="comment" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Jobtakers" Relationship="Self.FK_Jobtakers_jobs" FromRole="jobs" ToRole="Jobtakers" />
+  </EntityType>
+  <EntityType Name="Jobtakers">
+    <Key>
+      <PropertyRef Name="Jobmatchid" />
+    </Key>
+    <Property Name="Jobid" Type="Int32" />
+    <Property Name="Jobtakerid" Type="Int32" />
+    <Property Name="Jobmatchid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="Employees" Relationship="Self.FK_Jobtakers_Employees" FromRole="Jobtakers" ToRole="Employees" />
+    <NavigationProperty Name="jobs" Relationship="Self.FK_Jobtakers_jobs" FromRole="Jobtakers" ToRole="jobs" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <Association Name="FK_Jobtakers_Employees">
+    <End Role="Employees" Type="Self.Employees" Multiplicity="0..1" />
+    <End Role="Jobtakers" Type="Self.Jobtakers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employees">
+        <PropertyRef Name="Employeeid" />
+      </Principal>
+      <Dependent Role="Jobtakers">
+        <PropertyRef Name="Jobtakerid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Jobtakers_jobs">
+    <End Role="jobs" Type="Self.jobs" Multiplicity="0..1" />
+    <End Role="Jobtakers" Type="Self.Jobtakers" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="jobs">
+        <PropertyRef Name="Jobid" />
+      </Principal>
+      <Dependent Role="Jobtakers">
+        <PropertyRef Name="Jobid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="managmentEntities2" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Employees" EntityType="Self.Employees" />
+    <EntitySet Name="jobs" EntityType="Self.jobs" />
+    <EntitySet Name="Jobtakers" EntityType="Self.Jobtakers" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <AssociationSet Name="FK_Jobtakers_Employees" Association="Self.FK_Jobtakers_Employees">
+      <End Role="Employees" EntitySet="Employees" />
+      <End Role="Jobtakers" EntitySet="Jobtakers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Jobtakers_jobs" Association="Self.FK_Jobtakers_jobs">
+      <End Role="jobs" EntitySet="jobs" />
+      <End Role="Jobtakers" EntitySet="Jobtakers" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

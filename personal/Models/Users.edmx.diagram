@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="ea361d426b0f407398a863cb0d04fdbd" Name="Diagram1">
+        <EntityTypeShape EntityType="personalModel.Intrests" Width="1.5" PointX="3" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="personalModel.Languages" Width="1.5" PointX="3" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="personalModel.Matches" Width="1.5" PointX="3" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="personalModel.Messages" Width="1.5" PointX="3" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="personalModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="personalModel.Users" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
+        <AssociationConnector Association="personalModel.FK_Intrests_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="personalModel.FK_Languages_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="personalModel.FK_Matches_MatchUsers" ManuallyRouted="false" />
+        <AssociationConnector Association="personalModel.FK_Matches_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="personalModel.FK_Messages_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="personalModel.FK_Messages_Users1" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

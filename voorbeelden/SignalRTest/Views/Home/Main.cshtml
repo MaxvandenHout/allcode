@@ -1,0 +1,50 @@
+﻿@using System.Web.Mvc;
+@using System.Web.Mvc.Html;
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>SIGNALR TEST</title>
+    <script type="text/javascript" src="/scripts/jquery-3.4.1.js"></script>
+    <script type="text/javascript" src="/scripts/jquery.signalR-2.4.1.js"></script>
+    <script type="text/javascript" src="/signalr/hubs"></script>
+    <script type="text/javascript" src="/content/website.js"></script>
+    <link rel="stylesheet" href="/content/website.css" />
+    <link rel="shortcut icon" type="image/x-icon" href="/content/favicon.ico">
+</head>
+<body onload="javascript: startSignalR();">
+    <div id="content">
+        <div>
+            <h2>SIGNALR TEST</h2>
+            <div>
+                @using (Html.BeginForm("Logoff", "Home", FormMethod.Post, new { id = "logoffForm" }))
+                {
+                }
+                <button id="logoff">Logoff</button>
+                <h3>Users</h3>
+                <table id="users">
+                </table>
+                <h3>Messages</h3>
+                <table>
+                    <tr>
+                        <td>Name:</td>
+                        <td><input type="text" id="name" /></td>
+                    </tr>
+                    <tr>
+                        <td>Message:</td>
+                        <td><input type="text" id="message" /></td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <button id="send">Send</button>
+                        </td>
+                    </tr>
+                </table>
+                <table id="messages">
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

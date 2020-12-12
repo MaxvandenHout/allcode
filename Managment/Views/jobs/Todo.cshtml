@@ -1,0 +1,89 @@
+﻿@model IEnumerable<Managment.Models.jobs>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Todo</title>
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Jobname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Jobdiscription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Jobtaker)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Begintime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Endtime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.acceptancetime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.finishtime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.comment)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Jobname)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Jobdiscription)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Status)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Jobtaker)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Begintime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Endtime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.acceptancetime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.finishtime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.comment)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Jobid }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.Jobid }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Jobid })
+                </td>
+            </tr>
+        }
+
+    </table>
+</body>
+</html>

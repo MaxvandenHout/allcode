@@ -1,0 +1,157 @@
+﻿@model IEnumerable<Managment.Models.jobs>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <script src="~/Scripts/Programscript.js"></script>
+    <style>
+
+        .popup {
+            border: 2px solid;
+            padding: 20px;
+            width: 300px;
+            resize: both;
+            overflow: auto;
+            display: none
+        }
+    </style>
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <div>
+        <input type="button" title="all" value="All" onclick="location.href='@Url.Action("Index", "jobs", new { filter = "All" })'" />
+        <input type="button" title="open" value="Open" onclick="location.href='@Url.Action("Index", "jobs", new { filter = "Open" })'" />
+        <input type="button" title="Busy" value="Busy" onclick="location.href='@Url.Action("Index", "jobs", new { filter = "Busy" })'" />
+        <input type="button" title="Finished" value="Finished" onclick="location.href='@Url.Action("Index", "jobs", new { filter = "Finished" })'" />
+        Current Filter = @ViewBag.filter
+    </div>
+
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Jobname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Jobdiscription)
+
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Jobtaker)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Begintime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Endtime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.acceptancetime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.finishtime)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.comment)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            var style = "";
+
+            if (item.acceptancetime == null)
+            {
+                style = "background-color:blue";
+
+
+            }
+
+            if (item.acceptancetime != null && item.finishtime == null)
+            {
+                style = "background-color:green";
+            }
+
+            if (item.acceptancetime != null && item.finishtime == null)
+            {
+                style = "background-color:yellow";
+            }
+
+
+
+
+            <tr style="@style">
+                <td>
+                    @Html.DisplayFor(modelItem => item.Jobname)
+                </td>
+                <td>
+
+                    <button class="open-button" onclick="opendescription()">Description</button>
+                    <div id="description" class="popup">
+                        @Html.DisplayFor(new { comment = item.Jobid }n)
+                        <button type="button" onclick="closedescription()">Close</button>
+                    </div>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Status)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Jobtaker)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Begintime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Endtime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.acceptancetime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.finishtime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.comment)
+                    @if (item.comment == null)
+                    {
+                        <p style="background-color:red">No Comment</p>
+                    }
+                    @if (item.comment != null)
+                    {
+                        <button class="open-button" onclick="openComment(new { comment = item.Jobid })" style="background-color:green">Comment</button>
+
+                    }
+
+
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Jobid }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.Jobid }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Jobid })
+                </td>
+            </tr>
+        }
+
+    </table>
+    <div id="Comment" class="popup">
+        @Html.DisplayFor(modelItem => item.comment)
+        <button type="button" onclick="closeComment()">Close</button>
+    </div>
+    <div id="description" class="popup">
+        @Html.DisplayFor(modelItem => item.Jobdiscription)
+        <button type="button" onclick="closedescription()">Close</button>
+    </div>
+</body>
+</html>

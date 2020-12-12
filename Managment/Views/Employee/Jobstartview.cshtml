@@ -1,0 +1,77 @@
+﻿@model Managment.Models.jobs
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Jobstartview</title>
+    <script>
+        function changeview () {
+            var gone = document.getElementsByClassName("gone");
+            var come = document.getElementsByClassName("come");
+            if (gone.display = none)
+            {
+                gone.display = block;
+                come.display = none;
+            }
+            if (come.display = none)
+            {
+                gone.display = none;
+                come.display = block;
+            }
+        };
+        var acc = document.getElementsByClassName("busy");
+    var i;
+
+    for (i = 0; i < acc.length; i++) {
+        acc[i].addEventListener("click", function () {
+            this.classList.toggle("active");
+            var panel = this.nextElementSibling;
+            if (panel.style.display === "block") {
+                panel.style.display = "none";
+            } else {
+                panel.style.display = "block";
+            }
+        });
+    }
+</script>
+</head>
+<body>
+    <div>
+        <div>
+            <table border: 1px solid #dddddd;>
+                <tr><td>Name: @Model.Jobname</td></tr>
+                <tr><td>Status: @Model.Status</td></tr>
+                <tr><td>Endtime: @Model.Endtime</td></tr>
+                <tr><td>Begintime: @Model.Begintime</td></tr>
+                <tr><td>@Model.Jobdiscription</td></tr>
+                <tr>
+                    <td>
+                        <input type="button" title="Beschikbaar" value="Start" class="gone" onclick="location.href='@Url.Action("Jobstart", "Employee", new { jobid = Model.Jobid})', changeview()" />
+                    </td>
+                </tr>
+
+                @using (Html.BeginForm("Employee", "Finish", FormMethod.Post))
+                {
+
+                    <tr>
+                        <td>
+                            <input type="text" id="comment" class="come" style="display:none" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="submit" class="come" style="display:none" value="Finish" onclick="location.href='@Url.Action("JobFinish", "Employee", new { jobid = Model.Jobid})', changeview()" />
+                        </td>
+                    </tr>
+                }
+                </table>
+        </div>
+    </div>
+</body>
+
+</html>

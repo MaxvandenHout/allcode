@@ -1,0 +1,33 @@
+﻿@model IEnumerable<personal.Models.Users>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>View</title>
+</head>
+<body>
+    <form asp-controller="Movies" asp-action="Index">
+        <p>
+            Title: <input type="text" name="SearchString">
+            <input type="submit" value="Filter" />
+        </p>
+    </form>
+
+    @foreach (Users item in Model.users)
+    {
+       
+        <a onclick="location.href='@Url.Action("Loadmessages", "MainPage", new { id2 = item.Iduser })'" >
+            <div>
+                @Html.DisplayFor(modelItem => item.FName)
+            </div> 
+        </a>
+    }
+  
+</body>
+</html>

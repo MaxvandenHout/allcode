@@ -1,0 +1,13 @@
+D:\Programeren\mat\mat\bin\Debug\netcoreapp3.0\mat.exe
+D:\Programeren\mat\mat\bin\Debug\netcoreapp3.0\mat.deps.json
+D:\Programeren\mat\mat\bin\Debug\netcoreapp3.0\mat.runtimeconfig.json
+D:\Programeren\mat\mat\bin\Debug\netcoreapp3.0\mat.runtimeconfig.dev.json
+D:\Programeren\mat\mat\bin\Debug\netcoreapp3.0\mat.dll
+D:\Programeren\mat\mat\bin\Debug\netcoreapp3.0\mat.pdb
+D:\Programeren\mat\mat\obj\Debug\netcoreapp3.0\mat.csprojAssemblyReference.cache
+D:\Programeren\mat\mat\obj\Debug\netcoreapp3.0\mat.AssemblyInfoInputs.cache
+D:\Programeren\mat\mat\obj\Debug\netcoreapp3.0\mat.AssemblyInfo.cs
+D:\Programeren\mat\mat\obj\Debug\netcoreapp3.0\mat.dll
+D:\Programeren\mat\mat\obj\Debug\netcoreapp3.0\mat.pdb
+D:\Programeren\mat\mat\bin\Debug\netcoreapp3.0\Newtonsoft.Json.dll
+D:\Programeren\mat\mat\obj\Debug\netcoreapp3.0\mat.csproj.CopyComplete

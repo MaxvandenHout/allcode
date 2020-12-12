@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="anonnerdModelStoreContainer" CdmEntityContainer="Entities">
+    <EntitySetMapping Name="comment">
+      <EntityTypeMapping TypeName="anonnerdModel.comment">
+        <MappingFragment StoreEntitySet="comment">
+          <ScalarProperty Name="idcomment" ColumnName="idcomment" />
+          <ScalarProperty Name="comment1" ColumnName="comment" />
+          <ScalarProperty Name="writer" ColumnName="writer" />
+          <ScalarProperty Name="datetime" ColumnName="datetime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="post">
+      <EntityTypeMapping TypeName="anonnerdModel.post">
+        <MappingFragment StoreEntitySet="post">
+          <ScalarProperty Name="idPosts" ColumnName="idPosts" />
+          <ScalarProperty Name="Online" ColumnName="Online" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Mainpic" ColumnName="Mainpic" />
+          <ScalarProperty Name="Intro" ColumnName="Intro" />
+          <ScalarProperty Name="Writer" ColumnName="Writer" />
+          <ScalarProperty Name="Views" ColumnName="Views" />
+          <ScalarProperty Name="Tags" ColumnName="Tags" />
+          <ScalarProperty Name="Pic1" ColumnName="Pic1" />
+          <ScalarProperty Name="Vid1" ColumnName="Vid1" />
+          <ScalarProperty Name="Subtitle" ColumnName="Subtitle" />
+          <ScalarProperty Name="Text2" ColumnName="Text2" />
+          <ScalarProperty Name="Pic2" ColumnName="Pic2" />
+          <ScalarProperty Name="Vid2" ColumnName="Vid2" />
+          <ScalarProperty Name="Subtitle2" ColumnName="Subtitle2" />
+          <ScalarProperty Name="Text3" ColumnName="Text3" />
+          <ScalarProperty Name="Pic3" ColumnName="Pic3" />
+          <ScalarProperty Name="Vid3" ColumnName="Vid3" />
+          <ScalarProperty Name="Subtitle3" ColumnName="Subtitle3" />
+          <ScalarProperty Name="Text4" ColumnName="Text4" />
+          <ScalarProperty Name="Pic4" ColumnName="Pic4" />
+          <ScalarProperty Name="Vid4" ColumnName="Vid4" />
+          <ScalarProperty Name="Text5" ColumnName="Text5" />
+          <ScalarProperty Name="Pic5" ColumnName="Pic5" />
+          <ScalarProperty Name="Vid5" ColumnName="Vid5" />
+          <ScalarProperty Name="End" ColumnName="End" />
+          <ScalarProperty Name="Link1" ColumnName="Link1" />
+          <ScalarProperty Name="Link2" ColumnName="Link2" />
+          <ScalarProperty Name="Link3" ColumnName="Link3" />
+          <ScalarProperty Name="Link4" ColumnName="Link4" />
+          <ScalarProperty Name="Link5" ColumnName="Link5" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="subcomment">
+      <EntityTypeMapping TypeName="anonnerdModel.subcomment">
+        <MappingFragment StoreEntitySet="subcomment">
+          <ScalarProperty Name="idsubcomment" ColumnName="idsubcomment" />
+          <ScalarProperty Name="Content" ColumnName="Content" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Writer" ColumnName="Writer" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="writer">
+      <EntityTypeMapping TypeName="anonnerdModel.writer">
+        <MappingFragment StoreEntitySet="writer">
+          <ScalarProperty Name="idWriter" ColumnName="idWriter" />
+          <ScalarProperty Name="Time" ColumnName="Time" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,44 @@
+﻿
+@model dynamic
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>View</title>
+    <style>
+        .List{
+            height:100%;
+            width:33%;
+            float:left;
+        }
+        .Messanger{
+            height:100%;
+            width:66%;
+            float:right;
+        }
+    </style>
+</head>
+<body>
+    <form asp-controller="Movies" asp-action="Index">
+        <p>
+            Title: <input type="text" name="SearchString">
+            <input type="submit" value="Filter" />
+        </p>
+    </form>
+
+    @foreach (item in Model.Users)
+    {
+
+        <a onclick="location.href='@Url.Action("Loadmessages", "MainPage", new { id2 = users.Iduser })'">
+            <div>
+                @Html.DisplayFor(modelItem => users.FName)
+            </div>
+        </a>
+    }
+</body>
+</html>

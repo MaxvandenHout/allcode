@@ -1,0 +1,25 @@
+version: '3'
+services:
+  back-end:
+    container_name: node-mongo
+    restart: always
+    build: ./back-end
+    ports:
+      - '3000:3000'
+    external_links:
+      - mongo
+  mongo:
+    container_name: mongo
+    image: mongo
+    ports:
+      - '27017:27017'
+  front-end:
+    container_name: vuejs
+    restart: always
+    build: ./front-end
+    ports:
+        - '80:80'
+    external_links: 
+        - node-mongo
+
+    
